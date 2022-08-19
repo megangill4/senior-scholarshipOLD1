@@ -416,7 +416,7 @@ H=α1+β\begin{pmatrix}
 0 &amp; 1 &amp; 0 &amp; 0\\
 1 &amp; 0 &amp; 1 &amp; 0\\
 0 &amp; 1 &amp; 0 &amp; 1\\
-0 &amp; 0 &amp; 1 &amp; 0.8
+0 &amp; 0 &amp; 1 &amp; 1.0
 \end{pmatrix}
 \end{split}\]</div>
 <p>Using the same code as before, we find the following energies and coefficients:</p>
@@ -445,11 +445,11 @@ H=α1+β\begin{pmatrix}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Energies: [-1.54341698 -0.38708774  0.92924829  1.80125643]
-Coefficients: [[-0.42106498  0.64987884 -0.58196906  0.24834208]
- [-0.64745313  0.25062117  0.55044075 -0.46369003]
- [-0.57759514 -0.53672929  0.07884036  0.60999157]
- [ 0.26437204  0.47620183  0.59338958  0.59264496]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Energies: [-1.53208889 -0.34729636  1.00000000  1.87938524]
+Coefficients: [[-4.28525073e-01  6.56538502e-01 -5.77350269e-01  2.28013429e-01]
+ [-6.56538502e-01  2.28013429e-01  5.77350269e-01 -4.28525073e-01]
+ [-5.77350269e-01 -5.77350269e-01  2.74580730e-16  5.77350269e-01]
+ [ 2.28013429e-01  4.28525073e-01  5.77350269e-01  6.56538502e-01]]
 </pre></div>
 </div>
 </div>
@@ -457,19 +457,19 @@ Coefficients: [[-0.42106498  0.64987884 -0.58196906  0.24834208]
 <p>The following molecular orbitals are defined<a class="reference external" href="#fn3"><sup>3</sup></a>:</p>
 <div class="math notranslate nohighlight">
 \[
-E_1= α+1.80 β , ψ_1=0.26χ_1+0.26χ_2+0.26χ_3+0.26χ_4
+E_1= α+1.88 β , ψ_1=0.23χ_1+0.43χ_2+0.58χ_3+0.66χ_4
 \]</div>
 <div class="math notranslate nohighlight">
 \[
-E_2= α+0.93 β,ψ_2=-0.58χ_1-0.54χ_2+0.08χ_3+0.61χ_4
+E_2= α+1.00 β,ψ_2=-0.58χ_1-0.58χ_2+0.00χ_3+0.58χ_4
 \]</div>
 <div class="math notranslate nohighlight">
 \[
-E_3= α-0.39β,ψ_3=-0.65χ_1+0.25χ_2+0.55χ_3-0.46χ_4
+E_3= α-0.35β,ψ_3=-0.66χ_1+0.23χ_2+0.58χ_3-0.43χ_4
 \]</div>
 <div class="math notranslate nohighlight">
 \[
-E_4= α-1.54 β 	ψ_4=-0.42χ_1+0.65χ_2-0.58χ_3+0.25χ_4
+E_4= α-1.53 β 	ψ_4=-0.43χ_1+0.66χ_2-0.58χ_3+0.23χ_4
 \]</div>
 <p>Adding this information to the python program returns the following four plots:</p>
 <div class="cell docutils container">
@@ -704,14 +704,15 @@ E_4= α-1.54 β 	ψ_4=-0.42χ_1+0.65χ_2-0.58χ_3+0.25χ_4
 <p>The π system of prop-2-enal contains four electrons: one is contributed by each carbon and oxygen atom. As a result, the lowest energy two molecular orbitals are filled. In a nucleophilic addition reaction, a pair of electrons is contributed into the LUMO<a class="reference external" href="#fn4"><sup>4</sup></a> of the electrophile<a class="reference external" href="#fn5"><sup>5</sup></a>. The equation describing the LUMO of prop-2-enal, the 3π orbital, is shown again below:</p>
 <div class="math notranslate nohighlight">
 \[
-E_3= α-0.39β,ψ_3=-0.65χ_1+0.25χ_2+0.55χ_3-0.46χ_4
+E_3= α-0.35β,ψ_3=-0.66χ_1+0.23χ_2+0.58χ_3-0.43χ_4
 \]</div>
-<p>The largest region, which has greatest probability of finding an electron (as a result of having the greatest coefficient), and therefore most likely site of nucleophilic attack, is in fact carbon 1. Electron density is also donated to the region in between carbons 2 and 3, accounting for the double bond shown in the structure after addition.</p>
+<p>The largest region, which has greatest probability of finding an electron (as a result of having the greatest coefficient), and therefore most likely site of nucleophilic attack, is in fact carbon 1. Carbon 3 has a similar coefficient, and is also a likely site of nucleophilic attack<a class="reference external" href="#fn6"><sup>4</sup></a>, while carbon 2 and the oxygen atom have lower coefficients.</p>
 <p><span id="fn1"> 1: Yates, K. (1978). Hückel molecular orbital theory. New York: Academic Press.</span></p>
 <p><span id="fn2"> 2: Yates, (1978)</span></p>
 <p><span id="fn3"> 3: <span class="math notranslate nohighlight">\(χ_n\)</span> denotes the 2p orbital of atom <span class="math notranslate nohighlight">\(n\)</span> </span></p>
 <p><span id="fn4"> 4: Lowest unoccupied molecular orbital</span></p>
 <p><span id="fn5"> 5: In this case, the electrophile is prop-2-enal</span></p>
+<p><span id="fn6"> 6: The site of nucleophilic attack also depends on the nature of the nucleophile; hard nucleophiles tend to give 1,2 addition while soft nucleophiles tend to give 1,4 addition.</span></p>
 </section>
 
     <script type="text/x-thebe-config">
